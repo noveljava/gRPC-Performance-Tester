@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package performance;
+
+service PerformanceTest {
+  rpc Process(stream TestRequest) returns (stream TestResponse);
+}
+
+message TestRequest {
+  int64 id = 1;
+  string text = 2;
+  int64 correlation_id = 3;
+}
+
+message TestResponse {
+  int64 id = 1;
+  string text = 2;
+  int64 correlation_id = 3;
+}
